@@ -49,3 +49,29 @@ Then connect to the n8n instance on http://&lt;ip address&gt;:5678/
 
 ### Custom/3rd Party n8n Nodes
 There are a bunch of instructions online on how to get those to be active in your n8n instances. I struggled with this a lot. The best option I found was to just use the install process in the n8n web interface. Trying to build the docker containers with the new module installed via npm never worked for me and I eventually gave up. This current implementation seems to work well enough.
+
+### Basic Layout
+```
+            +---------+
+            |  main   |
+            | UI/API  |
+            +---------+
+              /     \
+             /       \
+     +---------+   +---------+
+     | Postgres|   |  Redis  |
+     +---------+   +---------+
+             \       /
+              \     /
+           +-----------+ 
+           |   worker  |
+           |  workflow |
+           |   broker  | 
+           +-----------+ 
+                 |
+           code execution
+                 |
+           +-----------+
+           |  runner   |
+           +-----------+
+```
