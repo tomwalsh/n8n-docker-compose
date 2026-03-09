@@ -22,6 +22,7 @@ This ensures that the `data` directory that n8n main and worker nodes use has th
 ### Custom/3rd Party n8n Nodes
 There are a bunch of instructions online on how to get those to be active in your n8n instances. I struggled with this a lot. The best option I found was to just use the install process in the n8n web interface. Trying to build the docker containers with the new module installed via npm never worked for me and I eventually gave up. This current implementation seems to work well enough for me.
 
+```mermaid
 flowchart TD
     subgraph MainNode["🖥️ Main n8n Node"]
         WH["Webhook / Trigger\nReceiver"]
@@ -101,3 +102,4 @@ flowchart TD
     class Workers,W1,W2,W3 workerStyle
     class Runners,R1,R2,R3 runnerStyle
     class Postgres,WD,EX,CR dbStyle
+```
