@@ -2,7 +2,7 @@
 This is a docker compose file that is designed to work with the new 2.x version of n8n. I have seen a few online versions that don't handle all of the differences required for this configuration. This is put together so that it helps others understand how all of these parts work together.
 
 ## Main Node
-This is the container (named: `main` in the compose file) that handles the normal API and web interface for the n8n instance. When you create a workflow, this is the interface for creating those in the web interface.
+This is the container (named: `main` in the compose file) that handles the normal API and web interface for the n8n instance. When you create a workflow, this is the container handling the UI for creating those.
 
 ## Worker Node
 This is the container (named: `worker` in the compose file) that handles the actual execution of the workflows. It also acts as the task broker in this type of deployment. Typically the main node would be responsible for this, but when you have a worker node, that is now the node that handles the task broker operations. The runners must register with the worker to ensure they get tasks.
