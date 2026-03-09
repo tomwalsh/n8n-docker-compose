@@ -23,12 +23,12 @@ chown -R 1000:1000 ./data/n8n
 This ensures that the `data` directory that n8n main and worker nodes use has the correct ownership permissions once mounted inside of the containers.
 
 Edit the `.env` file and update the following values:
-
+```
 POSTGRES_PASSWORD
 N8N_ENCRYPTION_KEY
 N8N_RUNNERS_AUTH_TOKEN
 TIMEZONE
-
+```
 You can run the following to generate a random string for the AUTH_TOKEN and ENCRYPTION_KEY:
 
 ```
