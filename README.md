@@ -22,5 +22,28 @@ chown -R 1000:1000 ./data/n8n
 
 This ensures that the `data` directory that n8n main and worker nodes use has the correct ownership permissions once mounted inside of the containers.
 
+Edit the `.env` file and update the following values:
+
+POSTGRES_PASSWORD
+N8N_ENCRYPTION_KEY
+N8N_RUNNERS_AUTH_TOKEN
+TIMEZONE
+
+You can run the following to generate a random string for the AUTH_TOKEN and ENCRYPTION_KEY:
+
+```
+openssl rand -base64 32
+```
+
+When you are ready start the docker compose:
+
+```
+docker compose up -d
+```
+
+You can drop the `-d` if you want to run it in the foreground to see if there are any errors.
+
+Then connect to the n8n instance on http://&lt;ip address&gt;:5678/
+
 ### Custom/3rd Party n8n Nodes
 There are a bunch of instructions online on how to get those to be active in your n8n instances. I struggled with this a lot. The best option I found was to just use the install process in the n8n web interface. Trying to build the docker containers with the new module installed via npm never worked for me and I eventually gave up. This current implementation seems to work well enough for me.
